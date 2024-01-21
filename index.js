@@ -1,0 +1,7 @@
+const{ Client, Partials } = require('discord.js')
+const doviz = require ('./doviz.js')
+const client = new Client({ intents: 131071, partials: Object.values(Partials).filter(x => typeof x === "string"), shards: 'auto' })
+const Config = require("./config.json")
+require("./src/handlers/commandHandler.js")(client)
+client.login(Config.Client.botToken)
+const fetch = require("node-fetch")
